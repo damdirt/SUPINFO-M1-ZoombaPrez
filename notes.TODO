@@ -1,0 +1,100 @@
+--- ✄ -----------------------
+WORKFLOW PRESENTATION 4NETS2 - AZURE
+--- ✄ -----------------------
+-- #bored --
+--- ✄ -----------------------
+-- #title
+  Zoomba est un réseau social axé "Pro" 
+  Il permet de partager des nouveautés, informations ou mêmes des idées 
+  dans un groupe de discussion
+  Cette version apporte de nouveaux changements sur le plan technique (publication sur Azure) 
+  et social (arrivée prochaine d'une application Windows Phone)
+--- ✄ ------------------------------
+-- #aspapp --
+Steps:
+  - Inscription d'un nouvel utlisateur avec image de profil en png || jpg || jpeg
+  - Création d'un ou deux statuts
+  - Création d'un groupe
+  - Onglet "Created" | Ajout d'un utilisateur dans le groupe 
+  - Onglet "Followed" pour visiter le groupe
+  - Ajout d'un "post" avec photo
+    - Montrer en Azure local que le thumbnail marche via "Inspecter l'élément"
+  - Se déconnecter et se connecter avec un autre membre
+  - "Liker" et Commenter le "post"
+  - Ajouter un autre "post"
+  - Rechercher un membre et le "follow"
+  - Revenir à /Home/Feeds pour montrer que l'on voit désormais les status du nouveau "following"
+--- ✄ -----------------------
+-- #Technically --
+--- ✄ -----------------------
+  Parlons un peu technique maintenant, plus particulièrement sur les technologies utilisées
+--- ✄ -----------------------
+-- #whycloudservices
+  Nous savons que Windows Azure permet d'héberger 
+  une application ASP.NET MVC comme ZOOMBA de 3 manières
+  Cloud Services || Virtual Machine || Web Site
+  Nous allons voir pourquoi j'ai choisi la solution Cloud Services plutôt que les autres
+--- ✄ -----------------------
+-- #proscloudservices --
+PaaS Environment :
+    ° The provider provides the networks, servers, storage and other services.
+    ° L'environnement PaaS nous permet de porter un intérêt minime aux matériel 
+    et d'augmenter la productivité logicielle. (pas de perte de temps dans les recherches niveau hardware)
+    ° Facilite le déploiement d'application sans le coût et la complexité d'acheter et de gérer le matériel.
+    ° Pas eu besoin de gérer l'installation d'un Windows Server, IIS, etc
+    ° Une intégration plus facile pour un mode SaaS futur ( SaaS is typically accessed by users using a thin client via a web browser.)
+Multi-Tier - Web & Worker Roles:
+    ° Possibilité d'ajouter un nombre illimité de rôle, pour externaliser des tâches asynchrones, traitements de fond
+    ° Feature uniquement disponible sur Cloud Services et Zoomba en avait besoin pour les miniatures des images de posts en tâche de fond
+    ° Ability to split an app up into tiers (maybe Web Role for front end, Worker Role for backend processing)
+Scalability:
+    ° Evolutivité indépendante pour chacun des rôles
+    ° The benefit of Cloud Services is it enables you to reduce cost by only scaling what needs scaled
+    ° meet demand, and dial back capacity when your traffic slows.
+--- ✄ -----------------------
+-- #comparison --
+    ° Comparons maintenant Windows Azure à deux autres offres du marché 
+    ° Une étant aussi du cloud computing, mode PaaS 
+    ° et l'autre une offre plus classique
+--- ✄ -----------------------
+-- #appharbor --
+  ° AppHarbor est service PaaS qui permet de déployer des applications .NET
+  ° Possibilité d'ajouter des worker role
+  ° Solution très intéressante car compatible avec WCF =>> OData possible
+  ° Prix fixe, pas de facturation en fonction de l'utilisation => très différent des autres
+  ° Blob storage disponible seulement avec Amazon Simple Storage Service
+--- ✄ -----------------------
+-- #ovh --
+  ° Hébergement plus traditionnel, le prix se fait ressentir, il est très abordable pour chacun
+  ° Espace dédié pour l'application 
+  ° Pas de tâches de fond et pas non plus de Web service avec OData possibles 
+          ° Solution >> WEB API
+  ° Aucune évolutivité, OVH nous proposera un serveur dédié si l'offre ne correspond plus à la demande
+--- ✄ -----------------------
+-- #IsWindowsAzureTheMostSuitableSolutionForThisApplication --
+  ° Voyons maintenant pourquoi Windows Azure est la solution la plus adaptéé à notre application ASP MVC
+--- ✄ -----------------------
+-- #IsWindowsAzureTheMostSuitableSolutionForThisApplicationAnswer --
+  ° Bien sûr que oui mais voyons pourquoi...
+--- ✄ -----------------------
+-- #reasons --
+  ° Windows Azure est facile à prendre en main et rapide pour manager son compte
+  ° On a la possibilité de faire évoluer son offre infiniment, 
+        si le traffic de Zoomba augmente, on augmente la puissance du hardware
+  ° Pas si cher que ça puisque Microsoft facture en fonction du trafic
+  ° Création d'un web service indépendant grâce à WCF OData
+  ° Intégration parfaite avec Visual Studio 2012
+--- ✄ -----------------------
+-- #howeverazure --
+  ° Je me suis aperçu que les déploiements étaient vraiment longs depuis VS2012
+-- #wphone -- 
+  ° Maintenant regardons de plus près un prototype de l'application Windows Phone 
+  ° Elle récupère les données depuis le service OData 
+
+
+
+
+
+
+
+  

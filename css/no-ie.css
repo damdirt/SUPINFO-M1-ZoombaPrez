@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "Segoeui";
+    src: url(../fonts/segoeui.ttf) format("truetype");
+}
+@font-face {
+    font-family: "Segoeuil";
+    src: url(../fonts/segoeuil.ttf) format("truetype");
+}
+@font-face {
+    font-family: "Segoeuisl";
+    src: url(../fonts/segoeuisl.ttf) format("truetype");
+}
+.segoe-ui { font-family: "Segoeui", "century gothic", Calibri;}
+.segoe-ui-light { font-family: "Segoeuil", "century gothic", Calibri;}
+.segoe-ui-sl { font-family: "Segoeuisl", "century gothic", Calibri;}
+
+// .zoomba { font-size: 72pt;}
+.zoombaorange { color: #F49021}
+.zoombagrey { color: #969184}
+.azure { color: #081b89} 
